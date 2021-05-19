@@ -3,6 +3,8 @@ package com.example.retrofitlab_uvg
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Button
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofitlab_uvg.databinding.ActivityMainBinding
@@ -15,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private  lateinit var binding: ActivityMainBinding
     private lateinit var adapter: ArticleAdapter
     private val articleList = mutableListOf<Articles>()
+    private lateinit var setCategory : String
+    private lateinit var setCountry : String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +26,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         initRecyclerView()
-        searchNew("business")
+        searchNew("us","business")
+
+
+        binding.btnBuscar.setOnClickListener{
+            setCategory = binding.searchNews.text.toString().lowercase()
+            initRecyclerView()
+            searchNew("us",setCategory)
+        }
+
+        binding.btnJap.setOnClickListener{
+            initRecyclerView()
+            searchNew("jp","general")
+        }
+
+        binding.btnAus.setOnClickListener{
+            initRecyclerView()
+            searchNew("au","general")
+        }
+
+        binding.btnFr.setOnClickListener{
+            initRecyclerView()
+            searchNew("fr","general")
+        }
+
     }
 
     private fun initRecyclerView(){
@@ -32,10 +60,12 @@ class MainActivity : AppCompatActivity() {
         binding.rvNews.adapter = adapter
     }
 
-    private fun searchNew(category:String){
+
+
+    private fun searchNew(country:String, category:String){
         val api = Retrofit2()
         CoroutineScope(Dispatchers.IO).launch {
-            val call = api.getService()?.getNewsByCategory("us", category, "a8886212f99148db85e099a6f655886a")
+            val call = api.getService()?.getNewsByCategory(country, category, "a8886212f99148db85e099a6f655886a")
             val news: NewsResponse? = call?.body()
 
             runOnUiThread{
@@ -59,5 +89,12 @@ class MainActivity : AppCompatActivity() {
     private fun showMessage(message:String){
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
+/**
+    private fun getCategory() : String{
+        binding.searchNews.text =
+
+    }
+**/
 
 }

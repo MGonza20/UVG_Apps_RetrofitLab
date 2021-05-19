@@ -7,14 +7,6 @@
     android:id="@+id/viewRoot"
     tools:context=".MainActivity">
 
-    <!--
-    <LinearLayout
-        android:id="@+id/searchNews"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        !-->
 
     <LinearLayout
         android:id="@+id/buscarInfo"
@@ -27,17 +19,16 @@
     </LinearLayout>
 
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:id="@+id/searchNews"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- </LinearLayout> !-->
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Buscar categoría"/>
 
 
     <LinearLayout
@@ -50,12 +41,12 @@
         app:layout_constraintTop_toBottomOf="@+id/searchNews">
 
         <Button
-            android:id="@+id/btnBr"
+            android:id="@+id/btnJap"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:text="Br"
+            android:text="Jap"
             android:textSize="22sp" />
 
         <Button
@@ -68,12 +59,12 @@
             android:textSize="22sp" />
 
         <Button
-            android:id="@+id/btnEng"
+            android:id="@+id/btnFr"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:layout_weight="1"
-            android:text="ENG"
+            android:text="FRA"
             android:textSize="22sp" />
 
     </LinearLayout>
@@ -90,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/CountriesBtn" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Buscar"
