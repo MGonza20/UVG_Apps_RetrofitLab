@@ -40,30 +40,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchNews">
 
-        <Button
+        <ImageButton
             android:id="@+id/btnJap"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="46dp"
             android:layout_margin="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
             android:layout_weight="1"
+            android:src="@drawable/ic_japan"
             android:text="Jap"
             android:textSize="22sp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnAus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="4dp"
+            android:layout_height="46dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
+            android:src="@drawable/australia_flag_icon"
             android:text="Aus"
             android:textSize="22sp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnFr"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="44dp"
             android:layout_margin="4dp"
             android:layout_weight="1"
+            android:src="@drawable/france_flag_icon"
             android:text="FRA"
             android:textSize="22sp" />
 
